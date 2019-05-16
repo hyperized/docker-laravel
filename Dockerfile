@@ -3,7 +3,7 @@ FROM php:7.2-fpm-alpine
 LABEL maintainer="Gerben Geijteman <gerben@hyperized.net>"
 LABEL description="My Laravel base image, supports Redis and Media operations"
 
-RUN apk --update add libpng freetype libjpeg-turbo \
+RUN apk --update add libpng freetype imagemagick-libs libjpeg-turbo \
  && apk --update add --virtual build-dependencies autoconf build-base imagemagick-dev libpng-dev freetype-dev libjpeg-turbo-dev \
  && docker-php-ext-configure gd \
         --with-freetype-dir=/usr/include/ \
